@@ -78,6 +78,8 @@ export class RestClient {
 			bots: { accountId: string; deviceId: string; secret: string; nickname?: string }[];
 			parent?: string;
 		}) => Promise<{ ok: boolean }>;
+		bulkDelete: (body: { botIds: string[] }) => Promise<{ ok: boolean; deleted: number }>;
+		bulkUpdate: (body: { botIds: string[]; parent: string | null }) => Promise<{ ok: boolean; updated: number }>;
 		commands: {
 			run: (
 				botId: string,
@@ -138,6 +140,8 @@ export class RestClient {
 			stats: () => this.request<ApiBotStats>('GET', '/bots/stats'),
 			bulkExport: (body) => this.request('POST', '/bots/bulk-export', body),
 			bulkImport: (body) => this.request('POST', '/bots/bulk-import', body),
+			bulkDelete: (body) => this.request('POST', '/bots/bulk-delete', body),
+			bulkUpdate: (body) => this.request('POST', '/bots/bulk-update', body),
 			commands: {
 				run: (botId, body) => this.request('POST', `/bots/${encodeURIComponent(botId)}/commands/run`, body)
 			},
