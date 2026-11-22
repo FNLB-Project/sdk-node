@@ -273,7 +273,7 @@ await startFNLB();
 setInterval(restartFNLB, 3_600_000); // every hour
 ```
 
-Prefer a ready-made env-based launcher? Use the [Self-Hosted](https://github.com/Fortnite-LobbyBot/Self-Hosted) template, or the [self-hosting guide](https://developers.fnlb.net/docs/self-hosting/overview).
+Prefer a ready-made env-based launcher? Use the [Self-Hosted](https://github.com/FNLB-Project/Self-Hosted) template, or the [self-hosting guide](https://developers.fnlb.net/docs/self-hosting/overview).
 
 ## Listen for events
 
